@@ -1,1 +1,29 @@
+name: Select Designs
 
+on:
+  repository_dispatch:
+    types: [select-designs]
+
+permissions:
+  contents: write
+
+jobs:
+  select:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run selection script
+        run: node select-designs.js
+
+      - name: Commit and push results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add published.json latest.json
+          git commit -m "Update selected designs" || echo "No changes to commit"
+          git push
