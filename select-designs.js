@@ -1,9 +1,18 @@
 const https = require('https');
 const fs = require('fs');
 
-function fetchUrl(url) {
+function fetchUrl(url, redirectCount = 0) {
   return new Promise((resolve, reject) => {
+    if (redirectCount > 5) return reject(new Error('Too many redirects'));
     https.get(url, { headers: { 'User-Agent': 'design-selector-script' } }, (res) => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        res.resume();
+        return resolve(fetchUrl(res.headers.location, redirectCount + 1));
+      }
+      if (res.statusCode !== 200) {
+        res.resume();
+        return reject(new Error(`HTTP ${res.statusCode} fetching ${url}`));
+      }
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => resolve(data));
@@ -14,7 +23,6 @@ function fetchUrl(url) {
 async function main() {
   // 1. جلب قائمة كل التصاميم من موقعك
   const xml = await fetchUrl('https://masterdxf.com/sitemap-images.xml');
-
   const urlBlocks = xml.match(/<url>[\s\S]*?<\/url>/g) || [];
   const designs = urlBlocks.map(block => {
     const loc = (block.match(/<loc>(.*?)<\/loc>/) || [])[1] || '';
