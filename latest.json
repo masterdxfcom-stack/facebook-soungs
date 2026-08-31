@@ -1,6 +1,32 @@
 {
-  "designs": [],
-  "generatedAt": "2026-08-31T10:09:09.524Z",
-  "totalDesigns": 0,
-  "publishedSoFar": 0
+  "designs": [
+    {
+      "loc": "https://masterdxf.com/designs/abstract-abstracted-pebble-stone-mosaic-mesh-screen",
+      "imageUrl": "https://masterdxf.com/door%20panel/1x/D139.webp",
+      "title": "Abstract Abstracted Pebble Stone Mosaic Mesh Screen"
+    },
+    {
+      "loc": "https://masterdxf.com/designs/wild-flourish-scroll-dxf-panel-for-abstract-wall-art",
+      "imageUrl": "https://masterdxf.com/door%20panel/1x/D228.webp",
+      "title": "Wild Flourish Scroll DXF Panel for Abstract Wall Art"
+    },
+    {
+      "loc": "https://masterdxf.com/designs/abstract-radial-swirl-dxf-panel-for-laser-cut-screens",
+      "imageUrl": "https://masterdxf.com/double%20doors/WEBP/A54.webp",
+      "title": "Abstract Radial Swirl DXF Panel for Laser-Cut Screens"
+    },
+    {
+      "loc": "https://masterdxf.com/designs/modern-fluid-nested-loop-privacy-partition-design",
+      "imageUrl": "https://masterdxf.com/door%20panel/1x/D96.webp",
+      "title": "Modern Fluid Nested Loop Privacy Partition Design"
+    },
+    {
+      "loc": "https://masterdxf.com/designs/angular-crisscross-dxf-pattern-for-industrial-door-screens",
+      "imageUrl": "https://masterdxf.com/door%20panel/1x/D236.webp",
+      "title": "Angular Crisscross DXF Pattern for Industrial Door Screens"
+    }
+  ],
+  "generatedAt": "2026-08-31T10:37:22.021Z",
+  "totalDesigns": 500,
+  "publishedSoFar": 5
 }
